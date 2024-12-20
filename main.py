@@ -88,6 +88,34 @@ pady=10)
 check_button.place(x=5, y=440)
 #can pass image=photo and compound="left" here the same way
 
+#radio buttons
+food = ["pizza", "burger", "sushi"]
+def order():
+    if (x.get()==0):
+        print("Pizza")
+    elif (x.get()==1):
+        print("Burger")
+    elif (x.get()==2):
+        print("Sushi")
+    else:
+        print("Wat")
+
+x = IntVar()
+for index in range(len(food)): #creates one radio button per item in list
+    radio_button = Radiobutton(window,
+     text=food[index], #adds text to buttons
+      variable=x, #groups radio buttons together if they share same variable
+       value=index, #assigns each radio button different value
+       padx=25, #adds padding on x axis
+       font=("Impact", 10),
+       indicatoron=0, #eliminate circle indicators
+       width =100, #width of radio buttons
+       command=order, #sets command to function
+       )
+    #image = foodimages[index] would add an image to each button in the for loop
+
+    radio_button.pack(anchor=W) #anchors them west
+
 #icon = PhotoImage(file="logo.png") converts photo to usable image
 # window.iconphoto(True, icon) will set the window icon to this photo
 
