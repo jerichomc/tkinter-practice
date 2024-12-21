@@ -8,7 +8,8 @@ def menu_submit():
 
     for i in listbox.curselection():
         food.insert(i, listbox.get(i))
-    print("You have ordered: ")
+
+    print("You have ordered: ") #This function will print out everything ordered
     for i in food:
         print(i)
     
@@ -18,7 +19,8 @@ def add():
     listbox.config(height=listbox.size()) #adjusts size of box as item is added
 
 def delete():
-    listbox.delete(listbox.curselection()) #deletes current selection
+    for index in reversed(listbox.curselection()): #reversed deletes in descending order so the indices dont change
+        listbox.delete(index) #deletes current selections
     listbox.config(height=listbox.size())
 
 
